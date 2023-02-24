@@ -11,14 +11,11 @@ from scipy.io import loadmat
 from multiprocessing import Process, Lock, Manager
 from PIL import Image
 
-old_bad_patients = [1, 14, 22, 23, 27, 28, 32, 34, 35, 36, 37, 38, 39, 44, 49, 69, 71, 
-                78, 82, 90, 98, 101, 121, 124, 128, 133, 928]
+old_bad_patients = [1, 14, 22, 23, 27, 28, 32, 34, 35, 36, 37, 38, 39, 44, 49, 69, 71, 78, 82, 90, 98, 101, 121, 124, 128, 133, 928]
 
-IPH_patients = ['DoD008', 'DoD009', 'DoD010', 'DoD012', 'DoD022', 'DoD047', 'DoD053', 
-                'DoD062', 'DoD066', 'DoD067', 'DoD069', 'DoD074', 'DoD075', 'DoD078', 
-                'DoD085', 'DoD089', 'DoD093', 'DoD101', 'DoD105', 'DoD107', 'DoD110', 
-                'DoD112', 'DoD113', 'DoD120', 'DoD121', 'DoD126', 'DoD129', 'DoD130', 
-                'DoD133']
+IPH_patients = ['DoD008', 'DoD009', 'DoD010', 'DoD012', 'DoD022', 'DoD047', 'DoD053', 'DoD062', 'DoD066', 'DoD067', 'DoD069', 'DoD074', 
+                'DoD075', 'DoD078', 'DoD085', 'DoD089', 'DoD093', 'DoD101', 'DoD105', 'DoD107', 'DoD110', 'DoD112', 'DoD113', 'DoD120', 
+                'DoD121', 'DoD126', 'DoD129', 'DoD130', 'DoD133']
 
 bad_patients = ['DoD027', 'DoD028', 'DoD035', 'DoD036', 'DoD038', 'DoD049', 'DoD069', 'DoD090']
 
@@ -73,7 +70,7 @@ def extract_single_frame_from_raw_displacement(rawData, cardiac_cycle=1, frame=0
     return np.array(displace_data.astype('float64'))
 
 
-def extract_single_frame_from_displacementNorm(rawData, cardiac_cycle=0, frame=9):
+def extract_single_frame_from_displacementNorm(rawData, cardiac_cycle=0, frame=9): # change frame as needed
     """
     Extract the displacement data from displacementNorm dataset
     Choose one cardiac cycle and a single frame in this cardiac cycle
@@ -130,7 +127,7 @@ def make_label(rawData, x_dim, y_dim, objective):
         mask = np.array(list(rawData['ventMaskThick']))
     
     # resize the masks
-    label = cv2.resize(mask, (y_dim, x_dim))
+    label = cv2.resize(mask, (y_dim, x_dim)) # bilinear by default
     
     return label.astype('float32')
 
@@ -159,7 +156,7 @@ def get_bMode(rawData, x_dim, y_dim):
     if len(bMode.shape) > 2:
         bMode = np.mean(bMode, axis=2)
         bMode = bMode[:, :, 0]
-    bMode = cv2.resize(bMode, (y_dim, x_dim))
+    bMode = cv2.resize(bMode, (y_dim, x_dim)) # bilinear by default
     
     return bMode
 
@@ -387,6 +384,7 @@ def make_hdf5(file_name, save_path, data_path):
                  fileNames[int(0.8*num_examples):])
     
     f.close()
+
 
 
 def make_hdf5_by_patient_group(file_name, save_path, data_path, objective):
