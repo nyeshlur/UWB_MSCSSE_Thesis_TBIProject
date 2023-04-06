@@ -70,7 +70,7 @@ def extract_single_frame_from_raw_displacement(rawData, cardiac_cycle=1, frame=0
     return np.array(displace_data.astype('float64'))
 
 
-def extract_single_frame_from_displacementNorm(rawData, cardiac_cycle=0, frame=9): # change frame as needed
+def extract_single_frame_from_displacementNorm(rawData, cardiac_cycle=1, frame=10): # change frame as needed
     """
     Extract the displacement data from displacementNorm dataset
     Choose one cardiac cycle and a single frame in this cardiac cycle
@@ -481,7 +481,8 @@ if __name__ == '__main__':
     else:
         raise ValueError("Enter a valid mode")
 
-    make_hdf5_by_patient_group(objective + '_displacementNorm_data.hdf5', 
-                           config.PROCESSED_DATA_DIR, 
-                           config.RAW_DATA_DIR,
-                           objective=mode)
+    # make_hdf5_by_patient_group(objective + '_displacementNorm_data.hdf5', 
+    #                        config.PROCESSED_DATA_DIR, 
+    #                        config.RAW_DATA_DIR,
+    #                        objective=mode)
+
