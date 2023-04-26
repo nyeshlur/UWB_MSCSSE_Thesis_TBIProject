@@ -1,4 +1,4 @@
-fileName = 'DoD001_Ter001_RC1_Displacement_Normalized_3.mat';
+fileName = '/DATA/TBI/jesseDATA/DoD001/DoD001_Ter001_RC1_Displacement_Normalized_3.mat';
 load(fileName);
 
 %%
