@@ -1,13 +1,13 @@
 fileName = 'DoD001_Ter001_RC1_Displacement_Normalized_3.mat';
 load(fileName);
-%%
 
 %%
 
-subset = displacementNorm(:, :, :, 1);
+dnorm = reshape(displacementNorm, size(displacementNorm, 1), size(displacementNorm, 2), []);
+% subset = displacementNorm(:, :, :, 1);
 
-dTemp = reshape(subset,[],size(subset,3));
-normaxis = linspace(1, 30, 30);
+dTemp = reshape(dnorm,[],size(dnorm,3));
+normaxis = linspace(1, size(dTemp, 2), size(dTemp, 2));
 
 for loop1 = 1:10
     m = mean(dTemp);
@@ -32,17 +32,8 @@ m = m/sqrt(sum(m.^2));
 figure(1);
 subplot(121);
 plot(normaxis, -m)  % -m to flip the plot across the x-axis
+xticks(0:30:size(dTemp, 2));
 grid on;
-xlabel('time (s)');
+xlabel('frames');
 ylabel('normalized displacement');
 title('Representative Displacement');
-
-% fs = 1/mean(diff(timeAxis));
-% F = fft(m(:).*hamming(length(m)),1024);
-% freqAxis = (0:length(F)-1)/length(F)*fs;
-% subplot(122);
-% plot(freqAxis,abs(F));
-% grid on;
-% xlabel('freqquency (Hz)');
-% ylabel('|F|');
-% title('Representative Displacement FFT');
