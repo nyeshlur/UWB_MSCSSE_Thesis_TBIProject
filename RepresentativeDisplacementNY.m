@@ -3,7 +3,7 @@
 % fileName = '/DATA/TBI/jesseDATA/DoD001/DoD001_Ter003_RO1_Displacement_Normalized_3.mat';
 % fileName = '/DATA/TBI/jesseDATA/DoD001/DoD001_Ter017_LC1_Displacement_Normalized_3.mat';
 % fileName = '/DATA/TBI/jesseDATA/DoD001/DoD001_Ter016_LA1_Displacement_Normalized_3.mat';
-fileName = '/DATA/TBI/jesseDATA/DoD001/DoD001_Ter018_LO1_Displacement_Normalized_3.mat';
+% fileName = '/DATA/TBI/jesseDATA/DoD001/DoD001_Ter018_LO1_Displacement_Normalized_3.mat';
 
 
 load(fileName);
