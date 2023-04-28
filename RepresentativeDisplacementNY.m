@@ -1,4 +1,4 @@
-fileName = '/DATA/TBI/jesseDATA/DoD050/DoD050_Ter001_RC1_Displacement_Normalized_3.mat';
+fileName = '/DATA/TBI/jesseDATA/DoD001/DoD001_Ter001_RC1_Displacement_Normalized_3.mat';
 load(fileName);
 
 %%
@@ -54,4 +54,4 @@ for loop3 = 1:numcycles
 end
 
 
-% save("DoD001_RC1.mat", "m", "max_displacement", "min_displacement")
+save("DoD001_RC1.mat", "m", "max_displacement", "min_displacement")
