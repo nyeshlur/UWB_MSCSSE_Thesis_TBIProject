@@ -26,16 +26,16 @@ for loop1 = 1:10
 end
 m = mean(dTemp);
 
-inverted_m = -m;
+m = -m; % invert
 
 figure(1);
 subplot(121);
-plot(normaxis, inverted_m)
+plot(normaxis, m)
 xticks(0:30:size(dTemp, 2));
 grid on;
 xlabel('frames');
 ylabel('displacement');
-title('Representative Displacement');
+title('Representative Displacement - DoD001_RC1');
 
 
 numcycles = size(dTemp, 2)/30;
@@ -44,14 +44,14 @@ max_displacement = zeros(2, numcycles);
 min_displacement = zeros(2, numcycles);
 
 for loop3 = 1:numcycles
-    [maxval, maxidx] = max(inverted_m(loop3 * 30 - 29:loop3 * 30));
+    [maxval, maxidx] = max(m(loop3 * 30 - 29:loop3 * 30));
     max_displacement(1, loop3) = maxval;
     max_displacement(2, loop3) = maxidx;
 
-    [minval, minidx] = min(inverted_m(loop3 * 30 - 29:loop3 * 30));
+    [minval, minidx] = min(m(loop3 * 30 - 29:loop3 * 30));
     min_displacement(1, loop3) = minval;
     min_displacement(2, loop3) = minidx;
 end
 
 
-% save("DoD001_RC1.mat", "inverted_m", "max_displacement", "min_displacement")
+% save("DoD001_RC1.mat", "m", "max_displacement", "min_displacement")
