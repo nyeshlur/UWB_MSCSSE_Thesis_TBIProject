@@ -11,7 +11,7 @@ dTemp = reshape(subset,[],size(subset,3));
 normaxis = linspace(1, 30, 30);
 
 for loop1 = 1:10
-    m = mean(dTemp);
+    m = mean(dTemp); % the mean of the elements of dTemp, m is a row vector containing the mean of each column
     flipWaveform = zeros(size(dTemp,1),1);
     for loop2 = 1:size(dTemp)
         cc = corrcoef(m,dTemp(loop2,:));
@@ -27,7 +27,7 @@ for loop1 = 1:10
     end
 end
 m = mean(dTemp);
-m = m/sqrt(sum(m.^2));
+m = m/sqrt(sum(m.^2)); % .^ is element-wise power
 
 
 figure(1);
@@ -50,3 +50,4 @@ title('Representative Displacement');
 % xlabel('freqquency (Hz)');
 % ylabel('|F|');
 % title('Representative Displacement FFT');
+
