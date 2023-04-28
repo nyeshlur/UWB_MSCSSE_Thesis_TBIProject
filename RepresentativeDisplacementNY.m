@@ -1,9 +1,9 @@
 % fileName = '/DATA/TBI/jesseDATA/DoD001/DoD001_Ter001_RC1_Displacement_Normalized_3.mat';
-fileName = '/DATA/TBI/jesseDATA/DoD001/DoD001_Ter002_RA1_Displacement_Normalized_3.mat';
+% fileName = '/DATA/TBI/jesseDATA/DoD001/DoD001_Ter002_RA1_Displacement_Normalized_3.mat';
 % fileName = '/DATA/TBI/jesseDATA/DoD001/DoD001_Ter003_RO1_Displacement_Normalized_3.mat';
 % fileName = '/DATA/TBI/jesseDATA/DoD001/DoD001_Ter017_LC1_Displacement_Normalized_3.mat';
 % fileName = '/DATA/TBI/jesseDATA/DoD001/DoD001_Ter016_LA1_Displacement_Normalized_3.mat';
-% fileName = '/DATA/TBI/jesseDATA/DoD001/DoD001_Ter018_LO1_Displacement_Normalized_3.mat';
+fileName = '/DATA/TBI/jesseDATA/DoD001/DoD001_Ter018_LO1_Displacement_Normalized_3.mat';
 
 
 load(fileName);
@@ -41,7 +41,7 @@ xticks(0:30:size(dTemp, 2));
 grid on;
 xlabel('frames');
 ylabel('displacement');
-title('Representative Displacement - DoD001RA1');
+title('Representative Displacement - DoD001LO1');
 
 numcycles = size(dTemp, 2)/30;
 
@@ -59,4 +59,4 @@ for loop3 = 1:numcycles
 end
 
 
-save("DoD001_RA1.mat", "m", "max_displacement", "min_displacement")
+save("DoD001_LO1.mat", "m", "max_displacement", "min_displacement")
