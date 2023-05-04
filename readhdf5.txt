@@ -1,3 +1,0 @@
-readhdf5.mlx
-h5disp("vent_displacementNorm_data.hdf5")
-data = h5read("vent_displacementNorm_data.hdf5",'/dev/bMode')
