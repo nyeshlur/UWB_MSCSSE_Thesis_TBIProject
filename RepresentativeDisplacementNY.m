@@ -1,6 +1,4 @@
-fileName = '/DATA/TBI/jesseDATA/DoD082/DoD082_Ter010_LO1_Displacement_Normalized_3.mat';
-
-
+fileName = '/DATA/TBI/jesseDATA/DoD082/DoD002_Ter010_LO1_Displacement_Normalized_3.mat';
 load(fileName);
 
 %%
@@ -21,7 +19,6 @@ for loop1 = 1:10
         end
     end
     flipWaveform = sum(flipWaveform)/length(flipWaveform)*100;
-    % disp(sprintf('Iteration %d, Flipped %0.2f%% Waveforms',loop1,flipWaveform));
     if flipWaveform<0.1
         break;
     end
