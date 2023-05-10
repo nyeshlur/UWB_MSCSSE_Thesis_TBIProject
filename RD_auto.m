@@ -14,7 +14,6 @@ function readFileswithinFolder(folderName)
         [~, fName, fExt] = fileparts(FileNames);
         if fExt == ".mat"
             newStr = split(fName,'_');
-            % if length(newStr) >= 3 && newStr(3) == "RC1" | newStr(3:3) == "RA1" | newStr(3) == "RO1"| newStr(3) == "LA1"| newStr(3) == "LO1" | newStr(3) == "LC1"
             if length(newStr) >= 3
                 outputName =strcat(newStr(1), newStr(3));
                 FileNames = strcat(strcat(folderName,"/"),strcat(FileNames,"/"));
