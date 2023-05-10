@@ -1,8 +1,8 @@
 function RD_auto()
-    folders = dir("/DATA/TBI/jesseDATA/"); 
+    folders = dir("/DATA/TBI/HealthyData/"); 
     for i = 1:length(folders)
         folder = folders(i).name ;
-        fullName = strcat("/DATA/TBI/jesseDATA/",folder);
+        fullName = strcat("/DATA/TBI/HealthyData/",folder);
         readFileswithinFolder(fullName);
     end
 end 
@@ -29,7 +29,7 @@ end
 function myfun(fileName, outputName, patId)
    load(fileName);
 
-   outputDir = "/DATA/TBI/NayanaOutput/";
+   outputDir = "/DATA/TBI/NayanaOutput/HealthyOutput/";
    newFolder = strcat(outputDir,strcat(patId,"/"));
    mkdir(newFolder)
    
