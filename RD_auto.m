@@ -1,5 +1,5 @@
 function RD_auto()
-    folders = dir("/DATA/TBI/NayanaData/HealthyData/"); 
+    folders = dir("/DATA/TBI/HealthyData/"); 
     for i = 1:length(folders)
         folder = folders(i).name;
         fullName = strcat("/DATA/TBI/HealthyData/",folder);
@@ -28,7 +28,7 @@ end
 function representativeDisplacement(fileName, outputName, patId)
    load(fileName);
 
-   outputDir = "/DATA/TBI/NayanaData/HealthyOutput/";
+   outputDir = "/DATA/TBI/HealthyOutput/";
    newFolder = strcat(outputDir,strcat(patId,"/"));
    mkdir(newFolder)
    

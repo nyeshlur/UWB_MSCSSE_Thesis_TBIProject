@@ -16,7 +16,6 @@ end
 
 single_cycle = single_cycle / numcycles;
 
-% figure out how to calculate standard deviation
 
 normaxis = linspace(1, length(m), length(m));
 axis = linspace(1, 30, 30);

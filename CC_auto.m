@@ -1,8 +1,8 @@
 function CC_auto()
-    folders = dir("/DATA/TBI/NayanaData/HealthyOutput/"); 
+    folders = dir("/DATA/TBI/TBI_RD/"); 
     for i = 1:length(folders)
         folder = folders(i).name;
-        fullName = strcat("/DATA/TBI/HealthyOutput/",folder);
+        fullName = strcat("/DATA/TBI/TBI_RD/",folder);
         readFileswithinFolder(fullName);
     end
 end 
@@ -25,7 +25,7 @@ end
 function condenseCycles(fileName, fName, patId)
    load(fileName, "m");
 
-   outputDir = "/DATA/TBI/NayanaData/HealthyCondensed/";
+   outputDir = "/DATA/TBI/TBICondensed/";
    newFolder = strcat(outputDir,strcat(patId,"/"));
    mkdir(newFolder)
 
@@ -39,8 +39,6 @@ function condenseCycles(fileName, fName, patId)
    end
 
    single_cycle = single_cycle / numcycles;
-
-   % figure out how to calculate standard deviation
 
    normaxis = linspace(1, length(m), length(m));
    axis = linspace(1, 30, 30);
