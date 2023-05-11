@@ -18,7 +18,7 @@ LA5_001 = load(fileName);
 
 sum = LA1_001.single_cycle + LA2_001.single_cycle + LA3_001.single_cycle + LA4_001.single_cycle + LA5_001.single_cycle;
 
-sum = sum / 10;
+sum = sum / 5;
 
 axis = linspace(1, 30, 30);
 
