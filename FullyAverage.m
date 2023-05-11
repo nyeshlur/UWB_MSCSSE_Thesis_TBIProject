@@ -1,28 +1,28 @@
-fileName = '/DATA/TBI/TBICondensed/DoD001/DoD001RA1.mat';
-RA1_001 = load(fileName);
+fileName = '/DATA/TBI/TBICondensed/DoD001/DoD001LA1.mat';
+LA1_001 = load(fileName);
 
-fileName = '/DATA/TBI/TBICondensed/DoD001/DoD001RA2.mat';
-RA2_001 = load(fileName);
+fileName = '/DATA/TBI/TBICondensed/DoD001/DoD001LA2.mat';
+LA2_001 = load(fileName);
 
-fileName = '/DATA/TBI/TBICondensed/DoD001/DoD001RA3.mat';
-RA3_001 = load(fileName);
+fileName = '/DATA/TBI/TBICondensed/DoD001/DoD001LA3.mat';
+LA3_001 = load(fileName);
 
-fileName = '/DATA/TBI/TBICondensed/DoD001/DoD001RA4.mat';
-RA4_001 = load(fileName);
+fileName = '/DATA/TBI/TBICondensed/DoD001/DoD001LA4.mat';
+LA4_001 = load(fileName);
 
-fileName = '/DATA/TBI/TBICondensed/DoD001/DoD001RA5.mat';
-RA5_001 = load(fileName);
-
-
+fileName = '/DATA/TBI/TBICondensed/DoD001/DoD001LA5.mat';
+LA5_001 = load(fileName);
 
 
-sum = RA1_001.single_cycle + RA2_001.single_cycle + RA3_001.single_cycle + RA4_001.single_cycle + RA5_001.single_cycle;
+
+
+sum = LA1_001.single_cycle + LA2_001.single_cycle + LA3_001.single_cycle + LA4_001.single_cycle + LA5_001.single_cycle;
 
 sum = sum / 10;
 
 axis = linspace(1, 30, 30);
 
-id_angle = "DoD001RA";
+id_angle = "DoD001LA";
 
 fig = figure(1);
 subplot(121);
