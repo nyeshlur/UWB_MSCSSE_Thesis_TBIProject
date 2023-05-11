@@ -1,5 +1,9 @@
-fileName = '/Matlab_Data/DoD001/DoD001_RC1.mat';
+fileName = "DoD001/DoD001RC1.mat";
 load(fileName);
+
+name = split(fileName, '/');
+name_2 = split(name(2), '.');
+disp(name_2(1));
 
 numcycles = length(m)/30;
 single_cycle = zeros(1, 30);
@@ -23,16 +27,18 @@ nexttile
 plot(normaxis, m)
 xticks(0:30:length(m));
 grid on;
-xlabel('frames');
-ylabel('displacement');
-title('Representative Displacement 001 RC1');
+xlabel("frames");
+ylabel("displacement");
+myTitle = "Representative Displacement" + " " + name_2(1);
+title(myTitle);
 
 nexttile
 plot(axis, single_cycle)
 xticks(0:1:30);
 grid on;
-xlabel('frames');
-ylabel('displacement');
-title('Averaged Displacement 066 RC1');
+xlabel("frames");
+ylabel("displacement");
+myTitle = "Averaged Displacement" + " " + name_2(1);
+title(myTitle);
 
 % save("001_RC1.mat", "m", "single_cycle")

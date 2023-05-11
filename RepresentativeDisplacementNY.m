@@ -1,4 +1,4 @@
-fileName = '/DATA/TBI/jesseDATA/DoD082/DoD002_Ter010_LO1_Displacement_Normalized_3.mat';
+fileName = "/DATA/TBI/jesseDATA/DoD082/DoD002_Ter010_LO1_Displacement_Normalized_3.mat";
 load(fileName);
 
 %%
@@ -31,9 +31,9 @@ subplot(121);
 plot(normaxis, m)
 xticks(0:30:size(dTemp, 2));
 grid on;
-xlabel('frames');
-ylabel('displacement');
-title('Representative Displacement - DoD082LO1');
+xlabel("frames");
+ylabel("displacement");
+title("Representative Displacement - DoD082LO1");
 
 numcycles = size(dTemp, 2)/30;
 

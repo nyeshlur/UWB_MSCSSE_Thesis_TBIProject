@@ -1,7 +1,7 @@
 function RD_auto()
-    folders = dir("/DATA/TBI/HealthyData/"); 
+    folders = dir("/DATA/TBI/NayanaData/HealthyData/"); 
     for i = 1:length(folders)
-        folder = folders(i).name ;
+        folder = folders(i).name;
         fullName = strcat("/DATA/TBI/HealthyData/",folder);
         readFileswithinFolder(fullName);
     end
@@ -9,15 +9,15 @@ end
 
 function readFileswithinFolder(folderName)
     Files = dir(folderName);
-    for j=1:length(Files)
-        FileNames=Files(j).name;
+    for j = 1:length(Files)
+        FileNames = Files(j).name;
         [~, fName, fExt] = fileparts(FileNames);
         if fExt == ".mat"
             newStr = split(fName,'_');
             if length(newStr) >= 3
-                outputName =strcat(newStr(1), newStr(3));
+                outputName = strcat(newStr(1), newStr(3));
                 FileNames = strcat(strcat(folderName,"/"),strcat(FileNames,"/"));
-                myfun(FileNames, outputName,newStr(1));
+                representativeDisplacement(FileNames, outputName,newStr(1));
             end
         end
     end
@@ -25,10 +25,10 @@ end
 
 
 
-function myfun(fileName, outputName, patId)
+function representativeDisplacement(fileName, outputName, patId)
    load(fileName);
 
-   outputDir = "/DATA/TBI/NayanaOutput/HealthyOutput/";
+   outputDir = "/DATA/TBI/NayanaData/HealthyOutput/";
    newFolder = strcat(outputDir,strcat(patId,"/"));
    mkdir(newFolder)
    
@@ -60,9 +60,9 @@ function myfun(fileName, outputName, patId)
    plot(normaxis, m)
    xticks(0:30:size(dTemp, 2));
    grid on;
-   xlabel('frames');
-   ylabel('displacement');
-   myTitle =strcat( 'Representative Displacement - ', outputName);
+   xlabel("frames");
+   ylabel("displacement");
+   myTitle = strcat("Representative Displacement - ", outputName);
    title(myTitle);
    figName = strcat(outputName,".pdf");
    
