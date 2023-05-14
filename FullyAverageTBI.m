@@ -1,24 +1,23 @@
-fileName = '/DATA/TBI/TBICondensed/DoD001/DoD001LA1.mat';
+local_folder = "/DATA/TBI/TBICondensed/";
+
+fileName = local_folder + "DoD001/DoD001LA1.mat";
 LA1_001 = load(fileName);
 
-fileName = '/DATA/TBI/TBICondensed/DoD001/DoD001LA2.mat';
+fileName = local_folder + "DoD001/DoD001LA2.mat";
 LA2_001 = load(fileName);
 
-fileName = '/DATA/TBI/TBICondensed/DoD001/DoD001LA3.mat';
+fileName = local_folder + "DoD001/DoD001LA3.mat";
 LA3_001 = load(fileName);
 
-fileName = '/DATA/TBI/TBICondensed/DoD001/DoD001LA4.mat';
+fileName = local_folder + "DoD001/DoD001LA4.mat";
 LA4_001 = load(fileName);
 
-fileName = '/DATA/TBI/TBICondensed/DoD001/DoD001LA5.mat';
+fileName = local_folder + "DoD001/DoD001LA5.mat";
 LA5_001 = load(fileName);
 
+matrix = [LA1_001.single_cycle; LA2_001.single_cycle; LA3_001.single_cycle; LA4_001.single_cycle; LA5_001.single_cycle];
 
-
-
-sum = LA1_001.single_cycle + LA2_001.single_cycle + LA3_001.single_cycle + LA4_001.single_cycle + LA5_001.single_cycle;
-
-sum = sum / 5;
+matrix_mean = mean(matrix);
 
 axis = linspace(1, 30, 30);
 
@@ -26,7 +25,7 @@ id_angle = "DoD001LA";
 
 fig = figure(1);
 subplot(121);
-plot(axis, sum)
+plot(axis, matrix_mean)
 xticks(0:1:30);
 grid on;
 xlabel("frames");
@@ -37,4 +36,4 @@ figName = id_angle + ".pdf";
 saveas(fig, figName)
 
 fName = id_angle + ".mat";
-save(fName, "sum")
+save(fName, "matrix_mean")
