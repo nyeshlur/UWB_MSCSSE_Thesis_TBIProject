@@ -1,5 +1,5 @@
-local_folder = "/DATA/TBI/TBICondensed/DoD002/DoD002";
-id = "DoD002";
+local_folder = "/DATA/TBI/TBICondensed/DoD004/DoD004";
+id = "DoD004";
 
 fileName = local_folder + "LA1.mat";
 LA1 = load(fileName);
