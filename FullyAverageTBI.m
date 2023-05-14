@@ -1,27 +1,28 @@
-local_folder = "/DATA/TBI/TBICondensed/DoD001/DoD001";
+local_folder = "/DATA/TBI/TBICondensed/DoD002/DoD002";
+id = "DoD002";
 
 fileName = local_folder + "LA1.mat";
-LA1_001 = load(fileName);
+LA1 = load(fileName);
 
 fileName = local_folder + "LA2.mat";
-LA2_001 = load(fileName);
+LA2 = load(fileName);
 
 fileName = local_folder + "LA3.mat";
-LA3_001 = load(fileName);
+LA3 = load(fileName);
 
 fileName = local_folder + "LA4.mat";
-LA4_001 = load(fileName);
+LA4 = load(fileName);
 
 fileName = local_folder + "LA5.mat";
-LA5_001 = load(fileName);
+LA5 = load(fileName);
 
-matrix = [LA1_001.single_cycle; LA2_001.single_cycle; LA3_001.single_cycle; LA4_001.single_cycle; LA5_001.single_cycle];
+matrix = [LA1.single_cycle; LA2.single_cycle; LA3.single_cycle; LA4.single_cycle; LA5.single_cycle];
 
 matrix_mean = mean(matrix);
 
 axis = linspace(1, 30, 30);
 
-id_angle = "DoD001LA";
+id_angle = id + "LA";
 
 fig = figure(1);
 subplot(121);
@@ -42,27 +43,27 @@ save(fName, "matrix_mean")
 
 
 fileName = local_folder + "RA1.mat";
-RA1_001 = load(fileName);
+RA1 = load(fileName);
 
 fileName = local_folder + "RA2.mat";
-RA2_001 = load(fileName);
+RA2 = load(fileName);
 
 fileName = local_folder + "RA3.mat";
-RA3_001 = load(fileName);
+RA3 = load(fileName);
 
 fileName = local_folder + "RA4.mat";
-RA4_001 = load(fileName);
+RA4 = load(fileName);
 
 fileName = local_folder + "RA5.mat";
-RA5_001 = load(fileName);
+RA5 = load(fileName);
 
-matrix = [RA1_001.single_cycle; RA2_001.single_cycle; RA3_001.single_cycle; RA4_001.single_cycle; RA5_001.single_cycle];
+matrix = [RA1.single_cycle; RA2.single_cycle; RA3.single_cycle; RA4.single_cycle; RA5.single_cycle];
 
 matrix_mean = mean(matrix);
 
 axis = linspace(1, 30, 30);
 
-id_angle = "DoD001RA";
+id_angle = id + "RA";
 
 fig = figure(1);
 subplot(121);
@@ -83,27 +84,27 @@ save(fName, "matrix_mean")
 
 
 fileName = local_folder + "LC1.mat";
-LC1_001 = load(fileName);
+LC1 = load(fileName);
 
 fileName = local_folder + "LC2.mat";
-LC2_001 = load(fileName);
+LC2 = load(fileName);
 
 fileName = local_folder + "LC3.mat";
-LC3_001 = load(fileName);
+LC3 = load(fileName);
 
 fileName = local_folder + "LC4.mat";
-LC4_001 = load(fileName);
+LC4 = load(fileName);
 
 fileName = local_folder + "LC5.mat";
-LC5_001 = load(fileName);
+LC5 = load(fileName);
 
-matrix = [LC1_001.single_cycle; LC2_001.single_cycle; LC3_001.single_cycle; LC4_001.single_cycle; LC5_001.single_cycle];
+matrix = [LC1.single_cycle; LC2.single_cycle; LC3.single_cycle; LC4.single_cycle; LC5.single_cycle];
 
 matrix_mean = mean(matrix);
 
 axis = linspace(1, 30, 30);
 
-id_angle = "DoD001LC";
+id_angle = id + "LC";
 
 fig = figure(1);
 subplot(121);
@@ -123,27 +124,27 @@ save(fName, "matrix_mean")
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 fileName = local_folder + "RC1.mat";
-RC1_001 = load(fileName);
+RC1 = load(fileName);
 
 fileName = local_folder + "RC2.mat";
-RC2_001 = load(fileName);
+RC2 = load(fileName);
 
 fileName = local_folder + "RC3.mat";
-RC3_001 = load(fileName);
+RC3 = load(fileName);
 
 fileName = local_folder + "RC4.mat";
-RC4_001 = load(fileName);
+RC4 = load(fileName);
 
 fileName = local_folder + "RC5.mat";
-RC5_001 = load(fileName);
+RC5 = load(fileName);
 
-matrix = [RC1_001.single_cycle; RC2_001.single_cycle; RC3_001.single_cycle; RC4_001.single_cycle; RC5_001.single_cycle];
+matrix = [RC1.single_cycle; RC2.single_cycle; RC3.single_cycle; RC4.single_cycle; RC5.single_cycle];
 
 matrix_mean = mean(matrix);
 
 axis = linspace(1, 30, 30);
 
-id_angle = "DoD001RC";
+id_angle = id + "RC";
 
 fig = figure(1);
 subplot(121);
