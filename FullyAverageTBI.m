@@ -1,5 +1,5 @@
-local_folder = "/DATA/TBI/TBICondensed/DoD009/DoD009";
-id = "DoD009";
+local_folder = "/DATA/TBI/TBICondensed/DoD033/DoD033";
+id = "DoD033";
 
 fileName = local_folder + "LA1.mat";
 LA1 = load(fileName);
@@ -60,6 +60,7 @@ RA5 = load(fileName);
 matrix = [RA1.single_cycle; RA2.single_cycle; RA3.single_cycle; RA4.single_cycle; RA5.single_cycle];
 
 matrix_mean = mean(matrix);
+
 
 axis = linspace(1, 30, 30);
 
