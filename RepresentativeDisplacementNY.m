@@ -51,4 +51,4 @@ for loop3 = 1:numcycles
 end
 
 
-save("DoD082_LO1.mat", "m", "max_displacement", "min_displacement")
+% save("DoD082_LO1.mat", "m", "max_displacement", "min_displacement")
