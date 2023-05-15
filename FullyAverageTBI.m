@@ -1,5 +1,5 @@
-local_folder = "/DATA/TBI/TBICondensed/DoD033/DoD033";
-id = "DoD033";
+local_folder = "/DATA/TBI/TBICondensed/DoD001/DoD001";
+id = "DoD001";
 
 fileName = local_folder + "LA1.mat";
 LA1 = load(fileName);
@@ -19,6 +19,8 @@ LA5 = load(fileName);
 matrix = [LA1.single_cycle; LA2.single_cycle; LA3.single_cycle; LA4.single_cycle; LA5.single_cycle];
 
 matrix_mean = mean(matrix);
+
+% matrix_mean = LA1.single_cycle;
 
 axis = linspace(1, 30, 30);
 
@@ -61,6 +63,7 @@ matrix = [RA1.single_cycle; RA2.single_cycle; RA3.single_cycle; RA4.single_cycle
 
 matrix_mean = mean(matrix);
 
+% matrix_mean = RA1.single_cycle;
 
 axis = linspace(1, 30, 30);
 
@@ -103,6 +106,8 @@ matrix = [LC1.single_cycle; LC2.single_cycle; LC3.single_cycle; LC4.single_cycle
 
 matrix_mean = mean(matrix);
 
+% matrix_mean = LC1.single_cycle;
+
 axis = linspace(1, 30, 30);
 
 id_angle = id + "LC";
@@ -142,6 +147,8 @@ RC5 = load(fileName);
 matrix = [RC1.single_cycle; RC2.single_cycle; RC3.single_cycle; RC4.single_cycle; RC5.single_cycle];
 
 matrix_mean = mean(matrix);
+
+% matrix_mean = RC1.single_cycle;
 
 axis = linspace(1, 30, 30);
 
