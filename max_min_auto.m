@@ -1,15 +1,16 @@
 function max_min_auto()
-    folders = dir("/Users/nayanayeshlur/Downloads/FullyAveragedData/");
+    folders = dir("/Users/nayanayeshlur/Downloads/New_Healthy_Representative_Displacement_Condensed_STDEV/");
     max_min = zeros(2, 1);
     for i = 1:length(folders)
         folder = folders(i).name;
         if folder ~= "." & folder ~= ".." & folder ~= ".DS_Store"
-            fullName = strcat("/Users/nayanayeshlur/Downloads/FullyAveragedData/",folder);
+            fullName = strcat("/Users/nayanayeshlur/Downloads/New_Healthy_Representative_Displacement_Condensed_STDEV/",folder);
             max_min_vec = readFileswithinFolder(fullName);
             max_min = [max_min max_min_vec];
         end
     end
-    save("Max_Min_Vector.mat", "max_min");
+      max_min(:, 1) = [];
+    save("Max_Min_Vector_H.mat", "max_min");
 end
 
 function max_min = readFileswithinFolder(folderName)
@@ -22,10 +23,10 @@ function max_min = readFileswithinFolder(folderName)
         if fExt == ".mat"
             FileNames = strcat(strcat(folderName,"/"),strcat(FileNames,"/"));
             disp(FileNames);
-            load(FileNames, "matrix_mean");
-            [~, idx] = max(matrix_mean);
+            load(FileNames, "single_cycle");
+            [~, idx] = max(single_cycle);
             max_min(1, max_min_index) = idx;
-            [~, idx] = min(matrix_mean);
+            [~, idx] = min(single_cycle);
             max_min(2, max_min_index) = idx;
             max_min_index = max_min_index + 1;
         end

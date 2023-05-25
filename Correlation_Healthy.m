@@ -1,7 +1,7 @@
-local_folder = "/Users/nayanayeshlur/Downloads/FullyAveragedData/";
-local_folder_2 = "/Users/nayanayeshlur/Downloads/HealthyCondensed/";
+local_folder = "/Users/nayanayeshlur/Downloads/Healthy_FullyAveraged/";
+local_folder_2 = "/Users/nayanayeshlur/Downloads/New_Healthy_Representative_Displacement_Condensed_STDEV/";
 id = "DoD313";
-Healthy_add = id + "/" + id;
+Healthy_add = id + "/" + id + "_";
 
 fileName = local_folder_2 + Healthy_add + "RC1.mat";
 RC = load(fileName);
@@ -16,34 +16,29 @@ fileName = local_folder_2 + Healthy_add + "LA1.mat";
 LA = load(fileName);
 
 
-fileName = local_folder + "Healthy/HealthyRC.mat";
+fileName = local_folder + "HealthyRC.mat";
 Healthy_RC = load(fileName);
 
-fileName = local_folder + "Healthy/HealthyRA.mat";
+fileName = local_folder + "HealthyRA.mat";
 Healthy_RA = load(fileName);
 
-fileName = local_folder + "Healthy/HealthyLC.mat";
+fileName = local_folder + "HealthyLC.mat";
 Healthy_LC = load(fileName);
 
-fileName = local_folder + "Healthy/HealthyLA.mat";
+fileName = local_folder + "HealthyLA.mat";
 Healthy_LA = load(fileName);
 
-RC.single_cycle = RC.single_cycle;
-RA.single_cycle = RA.single_cycle;
-LC.single_cycle = LC.single_cycle;
-LA.single_cycle = LA.single_cycle;
-
  
-cc_RC = corrcoef(RC.single_cycle, -Healthy_RC.matrix_mean);
+cc_RC = corrcoef(RC.single_cycle, Healthy_RC.matrix_mean);
 disp(cc_RC);
 
-cc_RA = corrcoef(RA.single_cycle, -Healthy_RA.matrix_mean);
+cc_RA = corrcoef(RA.single_cycle, Healthy_RA.matrix_mean);
 disp(cc_RA);
 
-cc_LC = corrcoef(LC.single_cycle, -Healthy_LC.matrix_mean);
+cc_LC = corrcoef(LC.single_cycle, Healthy_LC.matrix_mean);
 disp(cc_LC);
 
-cc_LA = corrcoef(LA.single_cycle, -Healthy_LA.matrix_mean);
+cc_LA = corrcoef(LA.single_cycle, Healthy_LA.matrix_mean);
 disp(cc_LA);
 
 axis = linspace(1, 30, 30);
@@ -59,7 +54,7 @@ ylabel("displacement");
 title("Averaged Displacement " + id + " RC");
 
 nexttile
-plot(axis, -Healthy_RC.matrix_mean)
+plot(axis, Healthy_RC.matrix_mean)
 xticks(0:1:30);
 grid on;
 xlabel("frames");
@@ -75,7 +70,7 @@ ylabel("displacement");
 title("Averaged Displacement " + id + " RA");
 
 nexttile
-plot(axis, -Healthy_RA.matrix_mean)
+plot(axis, Healthy_RA.matrix_mean)
 xticks(0:1:30);
 grid on;
 xlabel("frames");
@@ -91,7 +86,7 @@ ylabel("displacement");
 title("Averaged Displacement " + id + " LC");
 
 nexttile
-plot(axis, -Healthy_LC.matrix_mean)
+plot(axis, Healthy_LC.matrix_mean)
 xticks(0:1:30);
 grid on;
 xlabel("frames");
@@ -107,7 +102,7 @@ ylabel("displacement");
 title("Averaged Displacement " + id + " LA");
 
 nexttile
-plot(axis, -Healthy_LA.matrix_mean)
+plot(axis, Healthy_LA.matrix_mean)
 xticks(0:1:30);
 grid on;
 xlabel("frames");
