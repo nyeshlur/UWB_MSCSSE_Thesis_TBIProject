@@ -1,5 +1,7 @@
 clear; clc;
-load("/Users/nayanayeshlur/Downloads/Concatenated/Concatenated_LC.mat")
+load("/Users/nayanayeshlur/Downloads/Concatenated/Just_IPH/Concatenated_Healthy_IPH_LC.mat")
+healthy = load("/Users/nayanayeshlur/Downloads/Concatenated/Concatenated_Healthy_LC.mat");
+
 
 [nrows, ncols] = size(cc);
 
@@ -127,6 +129,15 @@ for i=1:nfeatures
 end
 
 % Loading_Vector_Average = abs(Vsquare);
+% Loading_Vector_Average = sum(Loading_Vector_Average(:, 1:5), 2);
+% 
+% figure;
+% bar(Loading_Vector_Average)
+% xticks(0:1:30);
+% xlabel('Feature index'); 
+% ylabel('Importance of feature');
+% title("Averages of Original Loading Vectors")
+
 
 
 
@@ -134,384 +145,105 @@ end
 %pc scatter
 %%%%%%%%%%%%%%%%%%
 
-% % RA
-% 
-% figure; 
-% hold on; 
-% title('PC1 vs PC2 vs PC3'); 
-% 
-% xlabel ("PC1 "); 
-% ylabel ("PC2 ");
-% zlabel ("PC3 ");
-% scatter3(Ur(1:88, 1), Ur(1:88, 2), Ur(1:88, 3), 'r.')
-% scatter3(Ur(89:1898, 1), Ur(89:1898, 2), Ur(89:1898, 3), 'bo')
-% 
-% figure; 
-% hold on; 
-% title('PC1 vs PC2 vs PC4'); 
-% 
-% xlabel ("PC1 "); 
-% ylabel ("PC2 ");
-% zlabel ("PC4 ");
-% scatter3(Ur(1:88, 1), Ur(1:88, 2), Ur(1:88, 4), 'r.')
-% scatter3(Ur(89:1898, 1), Ur(89:1898, 2), Ur(89:1898, 4), 'bo')
-% 
-% figure; 
-% hold on; 
-% title('PC1 vs PC3 vs PC4'); 
-% 
-% xlabel ("PC1 "); 
-% ylabel ("PC3 ");
-% zlabel ("PC4 ");
-% scatter3(Ur(1:88, 1), Ur(1:88, 3), Ur(1:88, 4), 'r.')
-% scatter3(Ur(89:1898, 1), Ur(89:1898, 3), Ur(89:1898, 4), 'bo')
-% 
-% figure; 
-% hold on; 
-% title('PC2 vs PC3 vs PC4'); 
-% 
-% xlabel ("PC2 "); 
-% ylabel ("PC3 ");
-% zlabel ("PC4 ");
-% scatter3(Ur(1:88, 2), Ur(1:88, 3), Ur(1:88, 4), 'r.')
-% scatter3(Ur(89:1898, 2), Ur(89:1898, 3), Ur(89:1898, 4), 'bo')
-% 
-% figure; 
-% hold on; 
-% title('PC1 vs PC2 vs PC5'); 
-% 
-% xlabel ("PC1 "); 
-% ylabel ("PC2 ");
-% zlabel ("PC5 ");
-% scatter3(Ur(1:88, 1), Ur(1:88, 2), Ur(1:88, 5), 'r.')
-% scatter3(Ur(89:1898, 1), Ur(89:1898, 2), Ur(89:1898, 5), 'bo')
-% 
-% figure; 
-% hold on; 
-% title('PC1 vs PC3 vs PC5'); 
-% 
-% xlabel ("PC1 "); 
-% ylabel ("PC3 ");
-% zlabel ("PC5 ");
-% scatter3(Ur(1:88, 1), Ur(1:88, 3), Ur(1:88, 5), 'r.')
-% scatter3(Ur(89:1898, 1), Ur(89:1898, 3), Ur(89:1898, 5), 'bo')
-% 
-% figure; 
-% hold on; 
-% title('PC1 vs PC4 vs PC5'); 
-% 
-% xlabel ("PC1 "); 
-% ylabel ("PC4 ");
-% zlabel ("PC5 ");
-% scatter3(Ur(1:88, 1), Ur(1:88, 4), Ur(1:88, 5), 'r.')
-% scatter3(Ur(89:1898, 1), Ur(89:1898, 4), Ur(89:1898, 5), 'bo')
-% 
-% figure; 
-% hold on; 
-% title('PC2 vs PC3 vs PC5'); 
-% 
-% xlabel ("PC2 "); 
-% ylabel ("PC3 ");
-% zlabel ("PC5 ");
-% scatter3(Ur(1:88, 2), Ur(1:88, 3), Ur(1:88, 5), 'r.')
-% scatter3(Ur(89:1898, 2), Ur(89:1898, 3), Ur(89:1898, 5), 'bo')
-% 
-% figure; 
-% hold on; 
-% title('PC2 vs PC4 vs PC5'); 
-% 
-% xlabel ("PC2 "); 
-% ylabel ("PC4 ");
-% zlabel ("PC5 ");
-% scatter3(Ur(1:88, 2), Ur(1:88, 4), Ur(1:88, 5), 'r.')
-% scatter3(Ur(89:1898, 2), Ur(89:1898, 4), Ur(89:1898, 5), 'bo')
+h_size = length(healthy.cc);
+size = length(cc);
+
+figure; 
+hold on; 
+title('PC1 vs PC2 vs PC3'); 
+
+xlabel ("PC1 "); 
+ylabel ("PC2 ");
+zlabel ("PC3 ");
+scatter3(Ur(1:h_size, 1), Ur(1:h_size, 2), Ur(1:h_size, 3), 'ro')
+scatter3(Ur((h_size + 1):size, 1), Ur((h_size + 1):size, 2), Ur((h_size + 1):size, 3), 'b.')
+
+figure; 
+hold on; 
+title('PC1 vs PC2 vs PC4'); 
+
+xlabel ("PC1 "); 
+ylabel ("PC2 ");
+zlabel ("PC4 ");
+scatter3(Ur(1:h_size, 1), Ur(1:h_size, 2), Ur(1:h_size, 4), 'ro')
+scatter3(Ur((h_size + 1):size, 1), Ur((h_size + 1):size, 2), Ur((h_size + 1):size, 4), 'b.')
 
 
-% % RC
-% 
-% figure; 
-% hold on; 
-% title('PC1 vs PC2 vs PC3'); 
-% 
-% xlabel ("PC1 "); 
-% ylabel ("PC2 ");
-% zlabel ("PC3 ");
-% scatter3(Ur(1:87, 1), Ur(1:87,2), Ur(1:87,3), 'r.')
-% scatter3(Ur(88:1806, 1), Ur(88:1806,2), Ur(88:1806,3), 'bo')
-% 
-% figure; 
-% hold on; 
-% title('PC1 vs PC2 vs PC4'); 
-% 
-% xlabel ("PC1 "); 
-% ylabel ("PC2 ");
-% zlabel ("PC4 ");
-% scatter3(Ur(1:87, 1), Ur(1:87,2), Ur(1:87,4), 'r.')
-% scatter3(Ur(88:1806, 1), Ur(88:1806,2), Ur(88:1806,4), 'bo')
-% 
-% figure; 
-% hold on; 
-% title('PC1 vs PC3 vs PC4'); 
-% 
-% xlabel ("PC1 "); 
-% ylabel ("PC3 ");
-% zlabel ("PC4 ");
-% scatter3(Ur(1:87, 1), Ur(1:87,3), Ur(1:87,4), 'r.')
-% scatter3(Ur(88:1806, 1), Ur(88:1806,3), Ur(88:1806,4), 'bo')
-% 
-% figure; 
-% hold on; 
-% title('PC2 vs PC3 vs PC4'); 
-% 
-% xlabel ("PC2 "); 
-% ylabel ("PC3 ");
-% zlabel ("PC4 ");
-% scatter3(Ur(1:87, 2), Ur(1:87,3), Ur(1:87,4), 'r.')
-% scatter3(Ur(88:1806, 2), Ur(88:1806,3), Ur(88:1806,4), 'bo')
-% 
-% figure; 
-% hold on; 
-% title('PC1 vs PC2 vs PC5'); 
-% 
-% xlabel ("PC1 "); 
-% ylabel ("PC2 ");
-% zlabel ("PC5 ");
-% scatter3(Ur(1:87, 1), Ur(1:87, 2), Ur(1:87, 5), 'r.')
-% scatter3(Ur(88:1806, 1), Ur(88:1806, 2), Ur(88:1806, 5), 'bo')
-% 
-% figure; 
-% hold on; 
-% title('PC1 vs PC3 vs PC5'); 
-% 
-% xlabel ("PC1 "); 
-% ylabel ("PC3 ");
-% zlabel ("PC5 ");
-% scatter3(Ur(1:87, 1), Ur(1:87,3), Ur(1:87,5), 'r.')
-% scatter3(Ur(88:1806, 1), Ur(88:1806, 3), Ur(88:1806, 5), 'bo')
-% 
-% figure; 
-% hold on; 
-% title('PC1 vs PC4 vs PC5'); 
-% 
-% xlabel ("PC1 "); 
-% ylabel ("PC4 ");
-% zlabel ("PC5 ");
-% scatter3(Ur(1:87, 1), Ur(1:87,4), Ur(1:87,5), 'r.')
-% scatter3(Ur(88:1806, 1), Ur(88:1806, 4), Ur(88:1806, 5), 'bo')
-% 
-% figure; 
-% hold on; 
-% title('PC2 vs PC3 vs PC5'); 
-% 
-% xlabel ("PC2 "); 
-% ylabel ("PC3 ");
-% zlabel ("PC5 ");
-% scatter3(Ur(1:87, 2), Ur(1:87,3), Ur(1:87,5), 'r.')
-% scatter3(Ur(88:1806, 2), Ur(88:1806, 3), Ur(88:1806, 5), 'bo')
-% 
-% figure; 
-% hold on; 
-% title('PC2 vs PC4 vs PC5'); 
-% 
-% xlabel ("PC2 "); 
-% ylabel ("PC4 ");
-% zlabel ("PC5 ");
-% scatter3(Ur(1:87, 2), Ur(1:87,4), Ur(1:87,5), 'r.')
-% scatter3(Ur(88:1806, 2), Ur(88:1806, 4), Ur(88:1806, 5), 'bo')
+figure; 
+hold on; 
+title('PC1 vs PC3 vs PC4'); 
+
+xlabel ("PC1 "); 
+ylabel ("PC3 ");
+zlabel ("PC4 ");
+scatter3(Ur(1:h_size, 1), Ur(1:h_size, 3), Ur(1:h_size, 4), 'ro')
+scatter3(Ur((h_size + 1):size, 1), Ur((h_size + 1):size, 3), Ur((h_size + 1):size, 4), 'b.')
 
 
+figure; 
+hold on; 
+title('PC2 vs PC3 vs PC4'); 
 
-% % LA
-
-% figure; 
-% hold on; 
-% title('PC1 vs PC2 vs PC3'); 
-% 
-% xlabel ("PC1 "); 
-% ylabel ("PC2 ");
-% zlabel ("PC3 ");
-% scatter3(Ur(1:96, 1), Ur(1:96,2), Ur(1:96,3), 'r.')
-% scatter3(Ur(97:1873, 1), Ur(97:1873,2), Ur(97:1873,3), 'bo')
-% 
-% figure; 
-% hold on; 
-% title('PC1 vs PC2 vs PC4'); 
-% 
-% xlabel ("PC1 "); 
-% ylabel ("PC2 ");
-% zlabel ("PC4 ");
-% scatter3(Ur(1:96, 1), Ur(1:96,2), Ur(1:96,4), 'r.')
-% scatter3(Ur(97:1873, 1), Ur(97:1873,2), Ur(97:1873,4), 'bo')
-% 
-% figure; 
-% hold on; 
-% title('PC1 vs PC3 vs PC4'); 
-% 
-% xlabel ("PC1 "); 
-% ylabel ("PC3 ");
-% zlabel ("PC4 ");
-% scatter3(Ur(1:96, 1), Ur(1:96,3), Ur(1:96,4), 'r.')
-% scatter3(Ur(97:1873, 1), Ur(97:1873,3), Ur(97:1873,4), 'bo')
-% 
-% figure; 
-% hold on; 
-% title('PC2 vs PC3 vs PC4'); 
-% 
-% xlabel ("PC2 "); 
-% ylabel ("PC3 ");
-% zlabel ("PC4 ");
-% scatter3(Ur(1:96, 2), Ur(1:96,3), Ur(1:96,4), 'r.')
-% scatter3(Ur(97:1873, 2), Ur(97:1873,3), Ur(97:1873,4), 'bo')
-% 
-% figure; 
-% hold on; 
-% title('PC1 vs PC2 vs PC5'); 
-% 
-% xlabel ("PC1 "); 
-% ylabel ("PC2 ");
-% zlabel ("PC5 ");
-% scatter3(Ur(1:96, 1), Ur(1:96,2), Ur(1:96,5), 'r.')
-% scatter3(Ur(97:1873, 1), Ur(97:1873,2), Ur(97:1873,5), 'bo')
-% 
-% figure; 
-% hold on; 
-% title('PC1 vs PC3 vs PC5'); 
-% 
-% xlabel ("PC1 "); 
-% ylabel ("PC3 ");
-% zlabel ("PC5 ");
-% scatter3(Ur(1:96, 1), Ur(1:96,3), Ur(1:96,5), 'r.')
-% scatter3(Ur(97:1873, 1), Ur(97:1873,3), Ur(97:1873,5), 'bo')
-% 
-% figure; 
-% hold on; 
-% title('PC1 vs PC4 vs PC5'); 
-% 
-% xlabel ("PC1 "); 
-% ylabel ("PC4 ");
-% zlabel ("PC5 ");
-% scatter3(Ur(1:96, 1), Ur(1:96,4), Ur(1:96,5), 'r.')
-% scatter3(Ur(97:1873, 1), Ur(97:1873,4), Ur(97:1873,5), 'bo')
-% 
-% figure; 
-% hold on; 
-% title('PC2 vs PC3 vs PC5'); 
-% 
-% xlabel ("PC2 "); 
-% ylabel ("PC3 ");
-% zlabel ("PC5 ");
-% scatter3(Ur(1:96, 2), Ur(1:96,3), Ur(1:96,5), 'r.')
-% scatter3(Ur(97:1873, 2), Ur(97:1873,3), Ur(97:1873,5), 'bo')
-% 
-% figure; 
-% hold on; 
-% title('PC2 vs PC4 vs PC5'); 
-% 
-% xlabel ("PC2 "); 
-% ylabel ("PC4 ");
-% zlabel ("PC5 ");
-% scatter3(Ur(1:96, 2), Ur(1:96,4), Ur(1:96,5), 'r.')
-% scatter3(Ur(97:1873, 2), Ur(97:1873,4), Ur(97:1873,5), 'bo')
+xlabel ("PC2 "); 
+ylabel ("PC3 ");
+zlabel ("PC4 ");
+scatter3(Ur(1:h_size, 2), Ur(1:h_size, 3), Ur(1:h_size, 4), 'ro')
+scatter3(Ur((h_size + 1):size, 2), Ur((h_size + 1):size, 3), Ur((h_size + 1):size, 4), 'b.')
 
 
-% LC
+figure; 
+hold on; 
+title('PC1 vs PC2 vs PC5'); 
 
-% 
-% figure; 
-% hold on; 
-% title('PC1 vs PC2 vs PC3'); 
-% 
-% xlabel ("PC1 "); 
-% ylabel ("PC2 ");
-% zlabel ("PC3 ");
-% scatter3(Ur(1:84, 1), Ur(1:84, 2), Ur(1:84, 3), 'bo')
-% scatter3(Ur(85:1816, 1), Ur(85:1816, 2), Ur(85:1816, 3), 'r.')
-% 
-% 
-% figure; 
-% hold on; 
-% title('PC1 vs PC2 vs PC4'); 
-% 
-% xlabel ("PC1 "); 
-% ylabel ("PC2 ");
-% zlabel ("PC4 ");
-% scatter3(Ur(1:84, 1), Ur(1:84, 2), Ur(1:84, 4), 'bo')
-% scatter3(Ur(85:1816, 1), Ur(85:1816, 2), Ur(85:1816, 4), 'r.')
-% 
-% 
-% figure; 
-% hold on; 
-% title('PC1 vs PC3 vs PC4'); 
-% 
-% xlabel ("PC1 "); 
-% ylabel ("PC3 ");
-% zlabel ("PC4 ");
-% scatter3(Ur(1:84, 1), Ur(1:84, 3), Ur(1:84, 4), 'bo')
-% scatter3(Ur(85:1816, 1), Ur(85:1816, 3), Ur(85:1816, 4), 'r.')
-% 
-% 
-% 
-% figure; 
-% hold on; 
-% title('PC2 vs PC3 vs PC4'); 
-% 
-% xlabel ("PC2 "); 
-% ylabel ("PC3 ");
-% zlabel ("PC4 ");
-% scatter3(Ur(1:84, 2), Ur(1:84, 3), Ur(1:84, 4), 'bo')
-% scatter3(Ur(85:1816, 2), Ur(85:1816, 3), Ur(85:1816, 4), 'r.')
-% 
-% 
-% figure; 
-% hold on; 
-% title('PC1 vs PC2 vs PC5'); 
-% 
-% xlabel ("PC1 "); 
-% ylabel ("PC2 ");
-% zlabel ("PC5 ");
-% scatter3(Ur(1:84, 1), Ur(1:84, 2), Ur(1:84, 5), 'bo')
-% scatter3(Ur(85:1816, 1), Ur(85:1816, 2), Ur(85:1816, 5), 'r.')
-% 
-% 
-% figure; 
-% hold on; 
-% title('PC1 vs PC3 vs PC5'); 
-% 
-% xlabel ("PC1 "); 
-% ylabel ("PC3 ");
-% zlabel ("PC5 ");
-% scatter3(Ur(1:84, 1), Ur(1:84, 3), Ur(1:84, 5), 'bo')
-% scatter3(Ur(85:1816, 1), Ur(85:1816, 3), Ur(85:1816, 5), 'r.')
-% 
-% 
-% figure; 
-% hold on; 
-% title('PC1 vs PC4 vs PC5'); 
-% 
-% xlabel ("PC1 "); 
-% ylabel ("PC4 ");
-% zlabel ("PC5 ");
-% scatter3(Ur(1:84, 1), Ur(1:84, 4), Ur(1:84, 5), 'bo')
-% scatter3(Ur(85:1816, 1), Ur(85:1816, 4), Ur(85:1816, 5), 'r.')
-% 
-% figure; 
-% hold on; 
-% title('PC2 vs PC3 vs PC5'); 
-% 
-% xlabel ("PC2 "); 
-% ylabel ("PC3 ");
-% zlabel ("PC5 ");
-% scatter3(Ur(1:84, 2), Ur(1:84, 3), Ur(1:84, 5), 'bo')
-% scatter3(Ur(85:1816, 2), Ur(85:1816, 3), Ur(85:1816, 5), 'r.')
-% 
-% figure; 
-% hold on; 
-% title('PC2 vs PC4 vs PC5'); 
-% 
-% xlabel ("PC2 "); 
-% ylabel ("PC4 ");
-% zlabel ("PC5 ");
-% scatter3(Ur(1:84, 2), Ur(1:84, 4), Ur(1:84, 5), 'bo')
-% scatter3(Ur(85:1816, 2), Ur(85:1816, 4), Ur(85:1816, 5), 'r.')
+xlabel ("PC1 "); 
+ylabel ("PC2 ");
+zlabel ("PC5 ");
+scatter3(Ur(1:h_size, 1), Ur(1:h_size, 2), Ur(1:h_size, 5), 'ro')
+scatter3(Ur((h_size + 1):size, 1), Ur((h_size + 1):size, 2), Ur((h_size + 1):size, 5), 'b.')
 
-%%%%%%%%%%%%%%%%%%
+
+figure; 
+hold on; 
+title('PC1 vs PC3 vs PC5'); 
+
+xlabel ("PC1 "); 
+ylabel ("PC3 ");
+zlabel ("PC5 ");
+scatter3(Ur(1:h_size, 1), Ur(1:h_size, 3), Ur(1:h_size, 5), 'ro')
+scatter3(Ur((h_size + 1):size, 1), Ur((h_size + 1):size, 3), Ur((h_size + 1):size, 5), 'b.')
+
+
+figure; 
+hold on; 
+title('PC1 vs PC4 vs PC5'); 
+
+xlabel ("PC1 "); 
+ylabel ("PC4 ");
+zlabel ("PC5 ");
+scatter3(Ur(1:h_size, 1), Ur(1:h_size, 4), Ur(1:h_size, 5), 'ro')
+scatter3(Ur((h_size + 1):size, 1), Ur((h_size + 1):size, 4), Ur((h_size + 1):size, 5), 'b.')
+
+
+figure; 
+hold on; 
+title('PC2 vs PC3 vs PC5'); 
+
+xlabel ("PC2 "); 
+ylabel ("PC3 ");
+zlabel ("PC5 ");
+scatter3(Ur(1:h_size, 2), Ur(1:h_size, 3), Ur(1:h_size, 5), 'ro')
+scatter3(Ur((h_size + 1):size, 2), Ur((h_size + 1):size, 3), Ur((h_size + 1):size, 5), 'b.')
+
+
+figure; 
+hold on; 
+title('PC2 vs PC4 vs PC5'); 
+
+xlabel ("PC2 "); 
+ylabel ("PC4 ");
+zlabel ("PC5 ");
+scatter3(Ur(1:h_size, 2), Ur(1:h_size, 4), Ur(1:h_size, 5), 'ro')
+scatter3(Ur((h_size + 1):size, 2), Ur((h_size + 1):size, 4), Ur((h_size + 1):size, 5), 'b.')
+
+
+%%%%%%%%%%%%%%%%%
